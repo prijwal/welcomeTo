@@ -43,6 +43,8 @@
     --gold-deep:#8C6D3B;
     --ink:#3C2F33;
     --ink-soft:#7D6B70;
+    --lemon:#F4D23C;
+    --magenta:#C2185B;
     --display:'Cormorant Garamond',"Cormorant","EB Garamond",Garamond,Georgia,serif;
     --script:'Parisienne',"Snell Roundhand","Apple Chancery",cursive;
     --sans:'Jost',"Futura","Avenir Next","Helvetica Neue",Arial,sans-serif;
@@ -242,7 +244,6 @@
      ===================================================================== */
   #events{display:block;padding-block:clamp(5rem,11vh,7rem)}
   #events .head{display:grid;gap:1rem;justify-items:center;text-align:center;margin-bottom:1.6rem}
-  #events h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,7vw,2.8rem);letter-spacing:.02em;margin:0;color:var(--rosewood);line-height:1.15}
   #events h2 em{font-style:italic;font-weight:500;color:var(--rose-deep)}
   .timeline{position:relative;display:grid;gap:1.6rem;max-width:520px;margin:0 auto;padding-left:34px;text-align:left}
   .timeline::before{content:"";position:absolute;left:9px;top:12px;bottom:12px;width:1px;background:linear-gradient(180deg,transparent,var(--gold) 6%,var(--gold) 94%,transparent)}
@@ -260,6 +261,29 @@
   .cal{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-weight:600;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;color:var(--sage-deep);padding:.6rem 1rem;border-radius:999px;border:1px solid var(--sage);transition:background .3s,color .3s,transform .4s var(--ease);white-space:nowrap}
   .cal:hover,.cal:focus-visible{background:var(--sage-deep);color:var(--white);transform:translateY(-1px)}
   .cal svg{width:13px;height:13px}
+  /* dress code line under each event's description */
+  .dress{flex-basis:100%;display:flex;align-items:center;flex-wrap:wrap;gap:.35rem .55rem;margin:-.3rem 0 0;font-style:italic;font-size:1.05rem;color:var(--rosewood)}
+  .dress small{font-family:var(--sans);font-style:normal;font-weight:600;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-deep);margin-right:.2rem}
+  .sw{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 0 2px var(--white),0 0 0 3px rgba(201,169,110,.8);flex:none}
+  .sw + .sw{margin-left:-.1rem}
+
+  /* =====================================================================
+     PLAN YOUR PACKING — one card per day
+     ===================================================================== */
+  #packing{min-height:auto;padding-block:clamp(5rem,11vh,7rem)}
+  #packing .inner{max-width:640px}
+  #events h2,#packing h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,7vw,2.8rem);letter-spacing:.02em;margin:0;color:var(--rosewood);line-height:1.15}
+  #packing h2 em{font-style:italic;font-weight:500;color:var(--rose-deep)}
+  .looks{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;width:100%;margin-top:.4rem;text-align:left}
+  .look{display:grid;gap:.35rem;align-content:start;padding:1.1rem 1.2rem 1.15rem;border-radius:20px;background:var(--white);box-shadow:0 20px 40px -30px rgba(60,47,51,.4),0 0 0 1px rgba(201,169,110,.35)}
+  .look .when{font-family:var(--sans);font-weight:600;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-deep)}
+  .look h3{font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.2;letter-spacing:.02em;margin:0;color:var(--rosewood)}
+  .look p{margin:0;font-style:italic;font-size:1.08rem;color:var(--ink);display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+  /* the one themed event, framed in its own two colours */
+  .look:last-child{grid-column:1 / -1}
+  .look.theme{border:1.5px solid transparent;background:linear-gradient(var(--white),var(--white)) padding-box,linear-gradient(110deg,var(--lemon),var(--magenta)) border-box;box-shadow:0 24px 44px -30px rgba(194,24,91,.55)}
+  .look.theme p{font-style:normal;font-weight:600;font-size:1.2rem;color:var(--magenta)}
+  .look.theme .sw{width:18px;height:18px}
 
   /* =====================================================================
      VENUE
@@ -340,6 +364,8 @@
     .ev .meta{padding:.9rem 1rem}
     .ev .body{padding:1rem 1rem 1.1rem}
     .cal{min-height:44px}
+    .looks{grid-template-columns:1fr;gap:.7rem}
+    .look{padding:1rem 1.05rem 1.05rem}
     .venue-card{border-radius:22px}
     .venue-card .text{padding:1.5rem 1rem 1.6rem}
     .btn{width:100%;max-width:320px}
@@ -479,11 +505,12 @@
       <div class="day rv">Thursday · 26 November 2026</div>
 
       <article class="ev rv">
-        <div class="photo" data-label="Carnival &amp; haldi photo — wedding-photos-v4/haldi.jpg"><picture><source type="image/webp" srcset="wedding-photos-v4/haldi.webp"><img loading="lazy" decoding="async" src="wedding-photos-v4/haldi.jpg" alt="" onerror="this.parentNode.classList.add('missing')"></picture>
+        <div class="photo" data-label="Carnival &amp; haldi photo — wedding-photos-v4/haldi.jpg"><picture><img loading="lazy" decoding="async" src="wedding-photos-v4/haldi.jpg" alt="" onerror="this.parentNode.classList.add('missing')"></picture>
           <div class="meta"><h3>Carnival Party &amp; Haldi</h3><span class="time">7:00 AM</span></div>
         </div>
         <div class="body">
           <p>Rang, masti aur haldi ki pehli khushboo…</p>
+          <div class="dress"><small>Dress code</small><span class="sw" style="--c:var(--lemon)"></span><span class="sw" style="--c:var(--magenta)"></span>Lemon &amp; Magenta</div>
           <a class="cal" target="_blank" rel="noopener" data-cal="Carnival Party & Haldi|20261126T013000Z|20261126T043000Z"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
         </div>
       </article>
@@ -494,6 +521,7 @@
         </div>
         <div class="body">
           <p>Geet, naach aur dil khol kar jashn…</p>
+          <div class="dress"><small>Dress code</small>Anything as you wish</div>
           <a class="cal" target="_blank" rel="noopener" data-cal="Sangeet|20261126T053000Z|20261126T093000Z"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
         </div>
       </article>
@@ -504,6 +532,7 @@
         </div>
         <div class="body">
           <p>Dhol bajenge, baraat niklegi aur khushiyan chhaayengi…</p>
+          <div class="dress"><small>Dress code</small>Anything as you wish</div>
           <a class="cal" target="_blank" rel="noopener" data-cal="Baraat|20261126T143000Z|20261126T183000Z"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
         </div>
       </article>
@@ -516,6 +545,7 @@
         </div>
         <div class="body">
           <p>Saat phere, saat vaade aur zindagi bhar ka saath…</p>
+          <div class="dress"><small>Dress code</small>Anything as you wish</div>
           <a class="cal" target="_blank" rel="noopener" data-cal="Wedding / Phere|20261127T023000Z|20261127T053000Z"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
         </div>
       </article>
@@ -526,9 +556,28 @@
         </div>
         <div class="body">
           <p>Aankhon mein aansu, dil mein duaayein aur ek nayi shuruaat…</p>
+          <div class="dress"><small>Dress code</small>Anything as you wish</div>
           <a class="cal" target="_blank" rel="noopener" data-cal="Vidai|20261127T053000Z|20261127T073000Z"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Add to calendar</a>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN YOUR PACKING ============ -->
+<section class="scene blush" id="packing">
+  <div class="flora tl" data-flora aria-hidden="true"></div>
+  <div class="flora br" data-flora aria-hidden="true"></div>
+  <div class="inner">
+    <p class="eyebrow rv">A little help for your suitcase</p>
+    <h2 class="rv d1">Plan your <em>packing</em></h2>
+    <p class="line rv d2" style="font-size:clamp(1.1rem,4vw,1.35rem)">Bas thoda sa idea, taaki packing aasaan ho jaaye.</p>
+    <div class="looks">
+      <div class="look rv d1"><span class="when">Wed · 25 Nov</span><h3>Dinner at home</h3><p>Anything as you wish</p></div>
+      <div class="look theme rv d2"><span class="when">Thu · 26 Nov · Morning</span><h3>Carnival Party &amp; Haldi</h3><p><span class="sw" style="--c:var(--lemon)"></span><span class="sw" style="--c:var(--magenta)"></span>Lemon &amp; Magenta</p></div>
+      <div class="look rv d2"><span class="when">Thu · 26 Nov · Morning</span><h3>Sangeet</h3><p>Anything as you wish</p></div>
+      <div class="look rv d3"><span class="when">Thu · 26 Nov · Evening</span><h3>Baraat</h3><p>Anything as you wish</p></div>
+      <div class="look rv d3"><span class="when">Fri · 27 Nov · Morning</span><h3>Wedding / Phere</h3><p>Anything as you wish</p></div>
     </div>
   </div>
 </section>
